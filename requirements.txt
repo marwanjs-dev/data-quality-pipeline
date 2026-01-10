@@ -1,0 +1,25 @@
+# Core data + IO
+pandas
+pyarrow
+requests
+
+# Postgres connectivity
+SQLAlchemy
+psycopg[binary]
+python-dotenv
+
+# Transformations (dbt)
+dbt-core
+dbt-postgres
+
+# Data quality gates + HTML docs
+great-expectations
+
+# Drift monitoring reports
+evidently
+
+# Dev/test hygiene (recommended)
+pytest
+ruff
+black
+pre-commit

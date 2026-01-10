@@ -1,0 +1,146 @@
+[0m21:36:42.583464 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000283C9D61700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000283C9C2DB50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000283C633D850>]}
+
+
+============================== 21:36:42.594103 | 9c164629-5776-47d1-b5aa-d90b4554ae6d ==============================
+[0m21:36:42.594103 [info ] [MainThread]: Running with dbt=1.11.2
+[0m21:36:42.595105 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\acer\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'invocation_command': 'dbt init dbt', 'use_colors': 'True', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m21:36:42.620530 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\acer\.dbt
+[0m21:36:54.493254 [debug] [MainThread]: Starter project path: E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\include\starter_project
+[0m21:36:54.545145 [info ] [MainThread]: 
+Your new dbt project "warehouse" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:36:54.546146 [info ] [MainThread]: Setting up your profile.
+[0m21:37:30.987102 [error] [MainThread]: Encountered an error:
+
+[0m21:37:31.057826 [error] [MainThread]: Traceback (most recent call last):
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\cli\requires.py", line 182, in wrapper
+    result, success = func(*args, **kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\cli\requires.py", line 128, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\cli\main.py", line 483, in init
+    results = task.run()
+              ^^^^^^^^^^
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 346, in run
+    self.setup_profile(profile_name)
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 262, in setup_profile
+    self.create_profile_from_target(adapter, profile_name=profile_name)
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 179, in create_profile_from_target
+    self.create_profile_from_profile_template(profile_template, profile_name)
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 163, in create_profile_from_profile_template
+    target = self.generate_target_from_input(prompts, initial_target)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\task\init.py", line 129, in generate_target_from_input
+    target[key] = click.prompt(
+                  ^^^^^^^^^^^^^
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\click\termui.py", line 171, in prompt
+    value = prompt_func(prompt)
+            ^^^^^^^^^^^^^^^^^^^
+  File "E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\click\termui.py", line 154, in prompt_func
+    raise Abort() from None
+click.exceptions.Abort
+
+[0m21:37:31.057826 [debug] [MainThread]: Command `dbt init` failed at 21:37:31.057826 after 48.72 seconds
+[0m21:37:31.057826 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000283C938D4C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000283C9B038C0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000283C9D60230>]}
+[0m21:37:31.057826 [debug] [MainThread]: Flushing usage events
+[0m21:37:43.883770 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D9073BFC50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D907BBFCB0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D9079FF4A0>]}
+
+
+============================== 21:37:43.891096 | 4fde5bd6-2496-49b6-bd3c-299b6541ca51 ==============================
+[0m21:37:43.891096 [info ] [MainThread]: Running with dbt=1.11.2
+[0m21:37:43.892109 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'log_cache_events': 'False', 'introspect': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\acer\\.dbt', 'indirect_selection': 'eager', 'use_colors': 'True', 'invocation_command': 'dbt init dbt', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m21:38:20.869508 [debug] [MainThread]: Starter project path: E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Lib\site-packages\dbt\include\starter_project
+[0m21:38:20.885802 [info ] [MainThread]: 
+Your new dbt project "Nyc_Taxi_Trips" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m21:38:20.886310 [info ] [MainThread]: Setting up your profile.
+[0m21:39:09.399785 [info ] [MainThread]: Profile Nyc_Taxi_Trips written to C:\Users\acer\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m21:39:09.400784 [debug] [MainThread]: Command `dbt init` succeeded at 21:39:09.400784 after 85.70 seconds
+[0m21:39:09.400784 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D907AB50A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D907AB6690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D907F7B9B0>]}
+[0m21:39:09.402289 [debug] [MainThread]: Flushing usage events
+[0m21:39:10.448159 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m21:45:23.497906 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017985EBBBC0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017982CA5340>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000179830F3F20>]}
+
+
+============================== 21:45:23.505047 | ba81d43f-4970-4356-b079-6e259a94918d ==============================
+[0m21:45:23.505047 [info ] [MainThread]: Running with dbt=1.11.2
+[0m21:45:23.505047 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'no_print': 'None', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': 'C:\\Users\\acer\\.dbt', 'invocation_command': 'dbt debug', 'indirect_selection': 'eager', 'use_colors': 'True', 'use_experimental_parser': 'False', 'log_path': 'logs'}
+[0m21:45:23.524858 [info ] [MainThread]: dbt version: 1.11.2
+[0m21:45:23.525990 [info ] [MainThread]: python version: 3.12.4
+[0m21:45:23.526512 [info ] [MainThread]: python path: E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\.venv\Scripts\python.exe
+[0m21:45:23.527028 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m21:45:23.608856 [info ] [MainThread]: Using profiles dir at C:\Users\acer\.dbt
+[0m21:45:23.609465 [info ] [MainThread]: Using profiles.yml file at C:\Users\acer\.dbt\profiles.yml
+[0m21:45:23.610475 [info ] [MainThread]: Using dbt_project.yml file at E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\dbt_project.yml
+[0m21:45:23.612474 [info ] [MainThread]: adapter type: postgres
+[0m21:45:23.613477 [info ] [MainThread]: adapter version: 1.10.0
+[0m21:45:23.613477 [info ] [MainThread]: Configuration:
+[0m21:45:23.614745 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m21:45:23.614745 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m21:45:23.615748 [info ] [MainThread]: Required dependencies:
+[0m21:45:23.616748 [debug] [MainThread]: Executing "git --help"
+[0m21:45:23.676602 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m21:45:23.677665 [debug] [MainThread]: STDERR: "b''"
+[0m21:45:23.677665 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m21:45:23.679174 [info ] [MainThread]: Connection:
+[0m21:45:23.679764 [info ] [MainThread]:   host: localhost
+[0m21:45:23.679764 [info ] [MainThread]:   port: 5433
+[0m21:45:23.680770 [info ] [MainThread]:   user: warehouse
+[0m21:45:23.681772 [info ] [MainThread]:   database: warehouse
+[0m21:45:23.681772 [info ] [MainThread]:   schema: staging
+[0m21:45:23.682775 [info ] [MainThread]:   connect_timeout: 10
+[0m21:45:23.682775 [info ] [MainThread]:   role: None
+[0m21:45:23.683777 [info ] [MainThread]:   search_path: None
+[0m21:45:23.684817 [info ] [MainThread]:   keepalives_idle: 0
+[0m21:45:23.684817 [info ] [MainThread]:   sslmode: None
+[0m21:45:23.685817 [info ] [MainThread]:   sslcert: None
+[0m21:45:23.686819 [info ] [MainThread]:   sslkey: None
+[0m21:45:23.686819 [info ] [MainThread]:   sslrootcert: None
+[0m21:45:23.687816 [info ] [MainThread]:   application_name: dbt
+[0m21:45:23.687816 [info ] [MainThread]:   retries: 1
+[0m21:45:23.687816 [info ] [MainThread]: Registered adapter: postgres=1.10.0
+[0m21:45:24.046529 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m21:45:24.124111 [debug] [MainThread]: Using postgres connection "debug"
+[0m21:45:24.125126 [debug] [MainThread]: On debug: select 1 as id
+[0m21:45:24.125126 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m21:45:24.152815 [debug] [MainThread]: SQL status: SELECT 1 in 0.027 seconds
+[0m21:45:24.152815 [debug] [MainThread]: On debug: Close
+[0m21:45:24.152815 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m21:45:24.156314 [info ] [MainThread]: [31m1 check failed:[0m
+[0m21:45:24.156785 [info ] [MainThread]: Project loading failed for the following reason:
+ project path <E:\fields_of_study\artificial_intelligence\projects\data-quality-pipeline\dbt_project.yml> not found
+
+[0m21:45:24.156785 [debug] [MainThread]: Command `dbt debug` failed at 21:45:24.156785 after 0.90 seconds
+[0m21:45:24.156785 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m21:45:24.156785 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017985E9BBF0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017985A62450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000017983747DD0>]}
+[0m21:45:24.160355 [debug] [MainThread]: Flushing usage events
+[0m21:45:25.045919 [debug] [MainThread]: An error was encountered while trying to flush usage events

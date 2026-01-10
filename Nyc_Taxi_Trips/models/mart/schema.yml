@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: fct_trips
+    columns:
+      - name: trip_id
+        tests:
+          - not_null
+          - unique
+
+      - name: pickup_ts
+        tests:
+          - not_null
+
+      - name: dropoff_ts
+        tests:
+          - not_null
+
+      - name: pu_location_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_zones')
+              field: location_id
+
+      - name: do_location_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('stg_zones')
+              field: location_id
