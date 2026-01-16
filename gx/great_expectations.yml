@@ -99,6 +99,13 @@ anonymous_usage_statistics:
 fluent_datasources:
   pg_docker:
     type: postgres
+    assets:
+      fct_trips:
+        type: table
+        order_by: []
+        batch_metadata: {}
+        table_name: fct_trips
+        schema_name: mart
     connection_string: postgresql+psycopg://warehouse:warehouse@localhost:5433/warehouse
 notebooks:
 include_rendered_content:

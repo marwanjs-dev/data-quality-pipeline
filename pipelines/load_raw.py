@@ -2,8 +2,37 @@ import os
 from pathlib import Path
 
 import pandas as pd
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, inspect
 from dotenv import load_dotenv
+
+# Custom method for faster insertions using COPY
+def psql_insert_copy(table, conn, keys, data_iter):
+    import csv
+    from io import StringIO
+
+    # Access the DBAPI connection (psycopg)
+    dbapi_conn = conn.connection
+    with dbapi_conn.cursor() as cur:
+        s_buf = StringIO()
+        writer = csv.writer(s_buf)
+        writer.writerows(data_iter)
+        s_buf.seek(0)
+
+        columns = ', '.join('"{}"'.format(k) for k in keys)
+        if table.schema:
+            table_name = '{}.{}'.format(table.schema, table.name)
+        else:
+            table_name = table.name
+
+        sql = f"COPY {table_name} ({columns}) FROM STDIN WITH CSV"
+        
+        # Use psycopg's copy context manager
+        if hasattr(cur, 'copy'):
+            with cur.copy(sql) as copy:
+                copy.write(s_buf.read())
+        else:
+            # Fallback (e.g. if using psycopg2 in future)
+            cur.copy_expert(sql=sql, file=s_buf)
 
 def main() -> None:
     load_dotenv()  # reads .env in repo root if present
@@ -29,30 +58,61 @@ def main() -> None:
     if not zones_path.exists():
         raise FileNotFoundError("Missing data/landing/taxi_zone_lookup.csv")
 
-    print(f"Using trips file: {trips_path.name}")
-    print(f"Using zones file: {zones_path.name}")
+    # print(f"Using trips file: {trips_path.name}")
+    # print(f"Using zones file: {zones_path.name}")
 
     # Create schemas
     with engine.begin() as conn:
         conn.execute(text("CREATE SCHEMA IF NOT EXISTS raw;"))
 
+    insp = inspect(engine)
+
+
     # Load zones
     zones = pd.read_csv(zones_path)
     zones.columns = [c.strip().lower() for c in zones.columns]
-    zones.to_sql("zones", engine, schema="raw", if_exists="replace", index=False)
+    with engine.begin() as conn:
+        conn.execute(text("CREATE SCHEMA IF NOT EXISTS raw;"))
+
+    if insp.has_table("zones", schema="raw"):
+        with engine.begin() as conn:
+            conn.execute(text("TRUNCATE TABLE raw.zones;"))
+        zones.to_sql("zones", engine, schema="raw", if_exists="append", index=False)
+    else:
+        zones.to_sql("zones", engine, schema="raw", if_exists="replace", index=False)
+
 
     # Load trips
     trips = pd.read_parquet(trips_path)
+    
+
+
     trips.columns = [c.strip().lower() for c in trips.columns]
-    trips.to_sql(
-        "yellow_trips",
-        engine,
-        schema="raw",
-        if_exists="replace",
-        index=False,
-        chunksize=50_000,
-        method="multi",
-    )
+
+    print("Loading yellow_trips using COPY method...")
+    
+    if insp.has_table("yellow_trips", schema="raw"):
+        with engine.begin() as conn:
+            conn.execute(text("TRUNCATE TABLE raw.yellow_trips;"))
+        trips.to_sql(
+            "yellow_trips",
+            engine,
+            schema="raw",
+            if_exists="append",
+            index=False,
+            method=psql_insert_copy,  # Much faster
+            chunksize=100000,         # Larger chunks are fine for COPY
+        )
+    else:
+        trips.to_sql(
+            "yellow_trips",
+            engine,
+            schema="raw",
+            if_exists="replace",
+            index=False,
+            method=psql_insert_copy,
+            chunksize=100000,
+        )
 
     print("Loaded raw.zones and raw.yellow_trips successfully.")
 

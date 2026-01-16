@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: ${PGPASSWORD}
       POSTGRES_DB: ${PGDATABASE}
     ports:
-      - "${PGPORT}:5432"
+      - "${PGPORT}:5433"
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:

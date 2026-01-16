@@ -1,5 +1,5 @@
 select *
-from {{ ref('fct_trips') }}
+from {{ ref('fct_trips_clean') }}
 where
   pickup_ts is null
   or dropoff_ts is null

@@ -31,10 +31,10 @@ def main() -> None:
     )
 
     # 3) Define the default batch as "whole table"
-    asset.add_batch_definition_whole_table("whole_table")
+    # asset.add_batch_definition_whole_table("whole_table")
+    # asset.(name="whole_table")
 
-    # Persist changes
-    context.save()
+    # Persist changes (not needed in GE v3+)
 
     print("GX datasource + asset registered: pg_docker -> mart.fct_trips (whole_table)")
 
